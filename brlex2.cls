@@ -44,11 +44,16 @@
 \fi
 
 \RequirePackage{textcase}
+% End of copy
+
 \RequirePackage{fmtcount}
 \RequirePackage{geometry}
 \RequirePackage{hyperref}
 
-% End of copy
+
+\ExplSyntaxOn
+\newcommand*{\makeuppercase}[1]{\text_uppercase:n{#1}}
+\ExplSyntaxOff
 
 \def\ifempty#1{\def\temp{#1}\ifx\temp\empty}
 
@@ -118,7 +123,7 @@
 \newcommand{\epigrafe}[1]{ % LEI Nº XXX/XXXX ou Título geral do documento
     \def\@epigrafe{#1}
     \begin{center}
-        \centering \large \ifusetitle\bfseries\fi \MakeUppercase{\@epigrafe}
+        \centering \large \ifusetitle\bfseries\fi \makeuppercase{\@epigrafe}
     \end{center}
     \thispagestyle{plain}%
 }
@@ -152,6 +157,8 @@
 %%%%%
 %%%%% DIVISÃO DO TEXTO: LIVROS, PARTES, TÍTULOS, CAPÍTULOS, SEÇÕES, SUBSEÇÕES
 %%%%%
+\setcounter{secnumdepth}{7}  
+\setcounter{tocdepth}{7}
 
 \newcounter{parte}
 \newcounter{livro}[parte]
@@ -163,51 +170,58 @@
 \newcommand*{\@parteromano}[1]{\refstepcounter{parte}
     \begin{center}
         PARTE \Roman{parte}\par
-        \MakeUppercase{#1}\vspace{1ex}
+        \makeuppercase{#1}\vspace{1ex}
     \end{center}
+    \addcontentsline{toc}{part}{PARTE \Roman{parte} -- \makeuppercase{#1}}
 }
 \newcommand*{\@parteextenso}[1]{\refstepcounter{parte}
     \begin{center}
         PARTE \ORDINALstring{parte}[f]\par
-        \MakeUppercase{#1}\vspace{1ex}
+        \makeuppercase{#1}\vspace{1ex}
     \end{center}
+    \addcontentsline{toc}{part}{PARTE \ORDINALstring{parte}[f] -- \makeuppercase{#1}}
 }
 \newcommand*{\parte}{\@ifstar{\@parteextenso}{\@parteromano}}
 
 \newcommand*{\partegeral}[1]{
     \begin{center}
         PARTE GERAL\par
-        \MakeUppercase{#1}\vspace{1ex}
+        \makeuppercase{#1}\vspace{1ex}
     \end{center}
+    \addcontentsline{toc}{part}{PARTE GERAL -- \makeuppercase{#1}}
 }
 
 \newcommand*{\parteespecial}[1]{
     \begin{center}
         PARTE ESPECIAL\par
-        \MakeUppercase{#1}\vspace{1ex}
+        \makeuppercase{#1}\vspace{1ex}
     \end{center}
+    \addcontentsline{toc}{part}{PARTE ESPECIAL -- \makeuppercase{#1}}
 }
 
 
 \newcommand*{\livro}[1]{\refstepcounter{livro}
     \begin{center}
         LIVRO \Roman{livro}\par
-        \MakeUppercase{#1}\vspace{1ex}
+        \makeuppercase{#1}\vspace{1ex}
     \end{center}
+    \addcontentsline{toc}{chapter}{TITULO \Roman{titulo} -- \makeuppercase{#1}}
 }
 
 \newcommand*{\titulo}[1]{\refstepcounter{titulo}
     \begin{center}
         TÍTULO \Roman{titulo}\par
-        \MakeUppercase{#1}\vspace{1ex}
+        \makeuppercase{#1}\vspace{1ex}
     \end{center}
+    \addcontentsline{toc}{section}{TÍTULO \Roman{titulo} -- \makeuppercase{#1}}
 }
 
 \newcommand*{\capitulo}[1]{\refstepcounter{capitulo}
     \begin{center}
         CAPÍTULO \Roman{capitulo}\par
-        \MakeUppercase{#1}\vspace{1ex}
+        \makeuppercase{#1}\vspace{1ex}
     \end{center}
+    \addcontentsline{toc}{subsection}{CAPÍTULO \Roman{capitulo}~--~\makeuppercase{#1}}
 }
 
 \newcommand*{\secao}[1]{\refstepcounter{secao}
@@ -216,6 +230,7 @@
         Seção \Roman{secao}\par
         #1\vspace{1ex}
     \end{center}
+    \addcontentsline{toc}{subsubsection}{Seção \Roman{secao} -- #1}
 }
 
 \newcommand*{\subsecao}[1]{\refstepcounter{subsecao}
@@ -224,9 +239,13 @@
         Subseção \Roman{subsecao}\par
         #1\vspace{1ex}
     \end{center}
+    \addcontentsline{toc}{paragraph}{Subseção \Roman{secao} -- #1}
 }
 
-\newcommand*{\tema}[1]{\par\noindent\textbf{#1} \par}
+\newcommand*{\tema}[1]{
+    \par\noindent\textbf{#1} \par
+    \addcontentsline{toc}{subparagraph}{#1}
+}
 
 
 
