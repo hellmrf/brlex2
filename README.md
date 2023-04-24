@@ -33,7 +33,8 @@ No geral, é possível:
 - Indicar o uso da fonte Calibri, cf. Decreto nº 9191/2017, (apenas XeLaTeX/LuaLaTeX e com a fonte instalada);
 - Formatar o numerador do dispositivo em negrito (**Art. 1º** Texto normal);
 - Usar partes específicas, gerais ou enumeradas em romanos (PARTE I) ou em ordinal por extenso (PARTE PRIMEIRA);
-- Metadados do PDF.
+- Metadados do PDF;
+- Índice nos bookmarks do PDF, permitindo fácil navegação pelo texto.
 
 ## Uso
 A utilização tem o foco em ser extremamente simplificada. Por exemplo, acompanhe o exemplo a seguir.
