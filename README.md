@@ -2,43 +2,6 @@
 
 > Classe $\LaTeX$ para redação de textos jurídicos conforme legislação brasileira.
 
-
-## Autor
-Desenvolvido e mantido por [Heliton Martins](https://linktr.ee/hellmrf) (<helitonmrf@gmail.com>).
-
-Esta classe foi largamente inspirada por [`br-lex`](https://ctan.org/pkg/br-lex), mas o código foi majoritariamente reescrito.
-
-## Referências normativas:
-
-1. Manual de Compilação da Legislação Brasileira (Câmara dos Deputados, 2012);
-2. Decreto nº 9191/2017, de 1º de novembro de 2017;
-3. Lei Complementar nº 95, de 26 de fevereiro de 1998.
-
-## Instalação
-
-Por enquanto, você deve colocar o arquivo `brlex2.cls` no mesmo diretório do seu arquivo `.tex`.
-
-## Recursos
-
-Esta classe é capaz de formatar atos normativos (leis, decretos, etc) e também outros textos legais com a mesma divisão padrão (estatutos, resoluções, portarias, etc). 
-
-As regras de formatação seguem as referências (1) e (3).
-
-No geral, é possível:
-
-- Numeração automática de todos os dispositivos e divisões;
-- Indicar a epígrafe, ementa e preâmbulo;
-- Dividir o texto em partes, livros, títulos, capítulos, seções e subseções;
-- Dividir os dispositivos em artigos, parágrafos, incisos, alíneas e itens;
-- Indicar o uso da fonte Calibri, cf. Decreto nº 9191/2017, (apenas XeLaTeX/LuaLaTeX e com a fonte instalada);
-- Formatar o numerador do dispositivo em negrito (**Art. 1º** Texto normal);
-- Usar partes específicas, gerais ou enumeradas em romanos (PARTE I) ou em ordinal por extenso (PARTE PRIMEIRA);
-- Metadados do PDF;
-- Índice nos bookmarks do PDF, permitindo fácil navegação pelo texto.
-
-## Uso
-A utilização tem o foco em ser extremamente simplificada. Por exemplo, acompanhe o exemplo a seguir.
-
 ![](img/exemplo0.png)
 
 **Código:**
@@ -58,6 +21,32 @@ A utilização tem o foco em ser extremamente simplificada. Por exemplo, acompan
 
 \end{document}
 ```
+
+## Recursos
+
+Esta classe é capaz de formatar atos normativos (leis, decretos, etc) e também outros textos legais com a mesma divisão padrão (estatutos, resoluções, portarias, etc). 
+
+As regras de formatação seguem as referências (1) e (3).
+
+No geral, é possível:
+
+- Numeração automática de todos os dispositivos e divisões;
+- Indicar a epígrafe, ementa e preâmbulo;
+- Dividir o texto em partes, livros, títulos, capítulos, seções e subseções;
+- Dividir os dispositivos em artigos, parágrafos, incisos, alíneas e itens;
+- Indicar o uso da fonte Calibri, cf. Decreto nº 9191/2017, (apenas XeLaTeX/LuaLaTeX e com a fonte instalada);
+- Formatar o numerador do dispositivo em negrito (**Art. 1º** Texto normal);
+- Usar partes específicas, gerais ou enumeradas em romanos (PARTE I) ou em ordinal por extenso (PARTE PRIMEIRA);
+- Metadados do PDF;
+- Índice nos bookmarks do PDF, permitindo fácil navegação pelo texto.
+
+
+## Instalação
+
+Por enquanto, você deve colocar o arquivo `brlex2.cls` no mesmo diretório do seu arquivo `.tex`.
+
+## Uso
+A utilização tem o foco em ser extremamente simplificada. 
 
 Veja o [Exemplo 1]() para um exemplo completo.
 
@@ -108,4 +97,18 @@ Ao escrever o texto normativo, estão disponíveis os seguintes comandos:
 - `\parun ...` em vez de `\paragrafounico ...` 
 - `\inc ...` em vez de `\inciso ...`
 - `\itm ...` em vez de `\itens ...`
+
+
+
+## Referências normativas:
+
+1. [Lei Complementar nº 95](https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp95.htm), de 26 de fevereiro de 1998.
+2. [Decreto nº 9191/2017](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/decreto/d9191.htm), de 1º de novembro de 2017 **(REVOGADO)**;
+3. [Manual de Compilação da Legislação Brasileira](https://bd.camara.leg.br/bitstreams/0ebe1f41-2826-428c-b4d5-d2f9b1c5b97a/download) (Câmara dos Deputados, 2012);
+
+
+## Autor
+Desenvolvido e mantido por [Heliton Martins](https://github.com/hellmrf) (<helitonmrf@gmail.com>).
+
+Esta classe foi largamente inspirada por [`br-lex`](https://ctan.org/pkg/br-lex), mas o código foi majoritariamente reescrito.
 
