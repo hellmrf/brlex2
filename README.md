@@ -1,12 +1,14 @@
-# `brlex2`
+# `brlex3` (formerly brlex2)
 
 > Classe $\LaTeX$ para redação de textos jurídicos conforme legislação brasileira.
+
+**🎉 Nova versão 3.0** - Agora com LaTeX3 (expl3)! Código completamente reescrito para maior qualidade, robustez e facilidade de manutenção.
 
 ![](img/exemplo0.png)
 
 **Código:**
 ```latex
-\documentclass[calibri]{brlex2}
+\documentclass[calibri]{brlex3}  % ou use brlex2 para a versão anterior
 
 \begin{document}
 
@@ -21,6 +23,33 @@
 
 \end{document}
 ```
+
+## Novidades na Versão 3.0
+
+🚀 **Grande atualização**: brlex3 é uma reescrita completa usando LaTeX3 (expl3)!
+
+### Melhorias Principais
+
+- ✅ **Código modernizado**: Implementação completa em expl3 (LaTeX3)
+- ✅ **Mais robusto**: Melhor tratamento de erros e validação
+- ✅ **Mensagens claras**: Avisos e erros mais úteis
+- ✅ **Opções modernas**: Suporte para sintaxe chave-valor
+- ✅ **Bem documentado**: Documentação inline completa
+- ✅ **100% compatível**: Todos os comandos do brlex2 funcionam
+
+### Migração do brlex2
+
+Para a maioria dos documentos, basta mudar o nome da classe:
+
+```latex
+% Antes (brlex2)
+\documentclass{brlex2}
+
+% Agora (brlex3)
+\documentclass{brlex3}
+```
+
+Veja [MIGRATION.md](MIGRATION.md) para detalhes completos.
 
 ## Recursos
 
@@ -43,7 +72,13 @@ No geral, é possível:
 
 ## Instalação
 
-Por enquanto, você deve colocar o arquivo `brlex2.cls` no mesmo diretório do seu arquivo `.tex`.
+### Versão 3.0 (brlex3 - Recomendado)
+
+Coloque o arquivo `brlex3.cls` no mesmo diretório do seu arquivo `.tex`.
+
+### Versão 2.0 (brlex2 - Legado)
+
+O arquivo `brlex2.cls` ainda está disponível para compatibilidade com documentos antigos.
 
 ## Uso
 A utilização tem o foco em ser extremamente simplificada. 
@@ -52,13 +87,32 @@ Veja o [Exemplo 1]() para um exemplo completo.
 
 
 ### Opções do pacote
-No exemplo anterior, usamos a opção `calibri` para o pacote (`\usepackage[opção1, opção2]{brlex2}`). As opções a seguir estão disponíveis.
 
-- `calibri`: usa a fonte Calibri (a fonte deve estar instalada e deve-se usar XeLaTeX ou LuaLaTeX como compilador);
-- `indent`: em vez de adicionar espaçamento entre os parágrafos, usa indentação para diferenciar os diferentes níveis (parágrafos, incisos, alíneas, itens...);
-- `artbold`: usa negrito para as numerações (**Art. 15.** Texto normal);
-- `usetitle`: coloca a epígrafe em negrito. Útil para escrever um estatuto, por exemplo;
-- `useitalic`: por padrão, `\emph` formata o texto em negrito, já que itálicos e sublinhados são vedados em textos jurídicos. Esta opção restaura o comportamento padrão de `\emph`.
+brlex3 suporta tanto a sintaxe legada quanto a moderna sintaxe chave-valor.
+
+#### Sintaxe Legada (brlex2 e brlex3)
+```latex
+\documentclass[calibri,artbold,indent]{brlex3}
+```
+
+#### Sintaxe Moderna (somente brlex3)
+```latex
+\documentclass[
+  font=calibri,
+  article-bold=true,
+  indent=true
+]{brlex3}
+```
+
+As opções a seguir estão disponíveis:
+
+| Opção Legada | Opção Moderna | Descrição |
+|--------------|---------------|-----------|
+| `calibri` | `font=calibri` | Usa a fonte Calibri (requer XeLaTeX/LuaLaTeX e fonte instalada) |
+| `indent` | `indent=true` | Usa indentação em vez de espaçamento entre parágrafos |
+| `artbold` | `article-bold=true` | Coloca as numerações em negrito (**Art. 15.** Texto normal) |
+| `usetitle` | `title-bold=true` | Coloca a epígrafe em negrito (útil para estatutos) |
+| `useitalic` | `emphasis=italic` | `\emph` usa itálico em vez de negrito |
 
 ### Comandos
 Ao escrever o texto normativo, estão disponíveis os seguintes comandos:
@@ -107,8 +161,22 @@ Ao escrever o texto normativo, estão disponíveis os seguintes comandos:
 3. [Manual de Compilação da Legislação Brasileira](https://bd.camara.leg.br/bitstreams/0ebe1f41-2826-428c-b4d5-d2f9b1c5b97a/download) (Câmara dos Deputados, 2012);
 
 
+## Documentação Adicional
+
+- **[CHANGELOG.md](CHANGELOG.md)** - Histórico detalhado de mudanças
+- **[MIGRATION.md](MIGRATION.md)** - Guia completo de migração do brlex2 para brlex3
+- **Exemplos**: Veja a pasta `examples/` para diversos exemplos de uso
+
+## Versões
+
+- **brlex3** (v3.0.0, 2025) - Versão atual, reescrita em LaTeX3 (expl3)
+- **brlex2** (v2.0.0, 2023) - Versão legada, ainda disponível
+
 ## Autor
 Desenvolvido e mantido por [Heliton Martins](https://github.com/hellmrf) (<helitonmrf@gmail.com>).
 
 Esta classe foi largamente inspirada por [`br-lex`](https://ctan.org/pkg/br-lex), mas o código foi majoritariamente reescrito.
+
+### Versão 3.0
+Reescrita completa usando LaTeX3 (expl3) em 2025, mantendo compatibilidade total com a versão 2.0.
 
